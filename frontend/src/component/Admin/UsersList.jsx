@@ -50,7 +50,7 @@ const UsersList = ({ history }) => {
   }, [dispatch, alert, error, deleteError, history, isDeleted, message]);
 
   const columns = [
-    { field: "id", headerName: "User ID", minWidth: 180, flex: 0.8 },
+    { field: "id", headerName: "ID", minWidth: 180, flex: 0.8 },
 
     {
       field: "email",
@@ -60,14 +60,14 @@ const UsersList = ({ history }) => {
     },
     {
       field: "name",
-      headerName: "Name",
+      headerName: "Tên",
       minWidth: 150,
       flex: 0.5,
     },
 
     {
       field: "role",
-      headerName: "Role",
+      headerName: "Quyền",
       type: "number",
       minWidth: 150,
       flex: 0.3,
@@ -119,12 +119,12 @@ const UsersList = ({ history }) => {
 
   return (
     <Fragment>
-      <MetaData title={`ALL USERS - Admin`} />
+      <MetaData title={`Danh sách tài khoản - Admin`} />
 
       <div className="dashboard">
         <SideBar />
         <div className="productListContainer">
-          <h1 id="productListHeading">ALL USERS</h1>
+          <h1 id="productListHeading">Danh sách tài khoản</h1>
 
           <DataGrid
             rows={rows}

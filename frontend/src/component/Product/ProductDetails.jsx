@@ -62,7 +62,7 @@ const ProductDetails = ({ match }) => {
 
   const addToCartHandler = () => {
     dispatch(addItemsToCart(match.params.id, quantity));
-    alert.success("Item Added To Cart");
+    alert.success("Đã thêm sách vào giỏ");
   };
 
   const submitReviewToggle = () => {
@@ -93,7 +93,7 @@ const ProductDetails = ({ match }) => {
     }
 
     if (success) {
-      alert.success("Review Submitted Successfully");
+      alert.success("Đánh giá thành công");
       dispatch({ type: NEW_REVIEW_RESET });
     }
     dispatch(getProductDetails(match.params.id));
@@ -105,7 +105,7 @@ const ProductDetails = ({ match }) => {
         <Loader />
       ) : (
         <Fragment>
-          <MetaData title={`${product.name} -- ECOMMERCE`} />
+          <MetaData title={`${product.name} - Thông tin sách`} />
           <div className="ProductDetails">
             <div>
               <Carousel>
@@ -130,11 +130,11 @@ const ProductDetails = ({ match }) => {
                 <Rating {...options} />
                 <span className="detailsBlock-2-span">
                   {" "}
-                  ({product.numOfReviews} Reviews)
+                  ({product.numOfReviews} Đánh giá)
                 </span>
               </div>
               <div className="detailsBlock-3">
-                <h1>{`₹${product.price}`}</h1>
+                <h1>{`$${product.price}`}</h1>
                 <div className="detailsBlock-3-1">
                   <div className="detailsBlock-3-1-1">
                     <button onClick={decreaseQuantity}>-</button>
@@ -145,12 +145,12 @@ const ProductDetails = ({ match }) => {
                     disabled={product.Stock < 1 ? true : false}
                     onClick={addToCartHandler}
                   >
-                    Add to Cart
+                    Thêm vào giỏ
                   </button>
                 </div>
 
                 <p>
-                  Status:
+                  Trạng thái:
                   <b className={product.Stock < 1 ? "redColor" : "greenColor"}>
                     {product.Stock < 1 ? "OutOfStock" : "InStock"}
                   </b>
@@ -158,23 +158,23 @@ const ProductDetails = ({ match }) => {
               </div>
 
               <div className="detailsBlock-4">
-                Description : <p>{product.description}</p>
+                Mô tả : <p>{product.description}</p>
               </div>
 
               <button onClick={submitReviewToggle} className="submitReview">
-                Submit Review
+                Đánh giá sách
               </button>
             </div>
           </div>
 
-          <h3 className="reviewsHeading">REVIEWS</h3>
+          <h3 className="reviewsHeading">Đánh giá khác</h3>
 
           <Dialog
             aria-labelledby="simple-dialog-title"
             open={open}
             onClose={submitReviewToggle}
           >
-            <DialogTitle>Submit Review</DialogTitle>
+            <DialogTitle>Xác nhận</DialogTitle>
             <DialogContent className="submitDialog">
               <Rating
                 onChange={(e) => setRating(e.target.value)}
@@ -192,10 +192,10 @@ const ProductDetails = ({ match }) => {
             </DialogContent>
             <DialogActions>
               <Button onClick={submitReviewToggle} color="secondary">
-                Cancel
+                Hủy
               </Button>
               <Button onClick={reviewSubmitHandler} color="primary">
-                Submit
+                Xác nhận
               </Button>
             </DialogActions>
           </Dialog>
@@ -208,7 +208,7 @@ const ProductDetails = ({ match }) => {
                 ))}
             </div>
           ) : (
-            <p className="noReviews">No Reviews Yet</p>
+            <p className="noReviews">Không có đánh giá</p>
           )}
         </Fragment>
       )}

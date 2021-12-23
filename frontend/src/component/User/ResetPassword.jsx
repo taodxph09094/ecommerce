@@ -37,7 +37,7 @@ const ResetPassword = ({ history, match }) => {
     }
 
     if (success) {
-      alert.success("Password Updated Successfully");
+      alert.success("Thay đổi mật khẩu thành công");
 
       history.push("/login");
     }

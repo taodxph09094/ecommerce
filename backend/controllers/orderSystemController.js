@@ -25,7 +25,7 @@ exports.getSingleOrderSystem = catchAsyncErrors(async (req, res, next) => {
     );
 
     if (!order) {
-      return next(new ErrorHander("Order not found with this Id", 404));
+      return next(new ErrorHander("Không tìm thấy đơn đặt hàng với Id này", 404));
     }
 
     res.status(200).json({
@@ -48,7 +48,7 @@ exports.getOrderSystem = catchAsyncErrors(async (req, res, next) => {
     const order = await OrderSystem.findById(req.params.id);
 
     if (!order) {
-      return next(new ErrorHander("Order not found with this Id", 404));
+      return next(new ErrorHander("Không tìm thấy đơn đặt hàng với Id này", 404));
     }
 
     if (order.orderStatus === "Đã trả") {
@@ -73,7 +73,7 @@ exports.deleteOrderSystem = catchAsyncErrors(async (req, res, next) => {
     const order = await OrderSystem.findById(req.params.id);
 
     if (!order) {
-      return next(new ErrorHander("Order not found", 404));
+      return next(new ErrorHander("Không tìm thấy đơn đặt hàng với Id này", 404));
     }
     await order.remove();
 

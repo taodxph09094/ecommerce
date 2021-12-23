@@ -32,29 +32,29 @@ const OrderDetails = ({ match }) => {
           <div className="orderDetailsPage">
             <div className="orderDetailsContainer">
               <Typography component="h1">
-                Order #{order && order._id}
+                Hóa đơn #{order && order._id}
               </Typography>
-              <Typography>Shipping Info</Typography>
+              <Typography>Thông tin giao hàng</Typography>
               <div className="orderDetailsContainerBox">
                 <div>
-                  <p>Name:</p>
+                  <p>Tên người tạo:</p>
                   <span>{order.user && order.user.name}</span>
                 </div>
                 <div>
-                  <p>Phone:</p>
+                  <p>Số điện thoại:</p>
                   <span>
                     {order.shippingInfo && order.shippingInfo.phoneNo}
                   </span>
                 </div>
                 <div>
-                  <p>Address:</p>
+                  <p>Địa chỉ:</p>
                   <span>
                     {order.shippingInfo &&
                       `${order.shippingInfo.address}, ${order.shippingInfo.city}, ${order.shippingInfo.state}, ${order.shippingInfo.pinCode}, ${order.shippingInfo.country}`}
                   </span>
                 </div>
               </div>
-              <Typography>Payment</Typography>
+              <Typography>Trạng thái thanh toán</Typography>
               <div className="orderDetailsContainerBox">
                 <div>
                   <p
@@ -67,23 +67,23 @@ const OrderDetails = ({ match }) => {
                   >
                     {order.paymentInfo &&
                     order.paymentInfo.status === "succeeded"
-                      ? "PAID"
-                      : "NOT PAID"}
+                      ? "Đã thanh toán"
+                      : "Thanh toán lỗi"}
                   </p>
                 </div>
 
                 <div>
-                  <p>Amount:</p>
+                  <p>Giá :</p>
                   <span>{order.totalPrice && order.totalPrice}</span>
                 </div>
               </div>
 
-              <Typography>Order Status</Typography>
+              <Typography>Trạng thái mượn</Typography>
               <div className="orderDetailsContainerBox">
                 <div>
                   <p
                     className={
-                      order.orderStatus && order.orderStatus === "Delivered"
+                      order.orderStatus && order.orderStatus === "Đã trả"
                         ? "greenColor"
                         : "redColor"
                     }
@@ -95,7 +95,7 @@ const OrderDetails = ({ match }) => {
             </div>
 
             <div className="orderDetailsCartItems">
-              <Typography>Order Items:</Typography>
+              <Typography>Số lượng đơn:</Typography>
               <div className="orderDetailsCartItemsContainer">
                 {order.orderItems &&
                   order.orderItems.map((item) => (
@@ -105,8 +105,8 @@ const OrderDetails = ({ match }) => {
                         {item.name}
                       </Link>{" "}
                       <span>
-                        {item.quantity} X ₹{item.price} ={" "}
-                        <b>₹{item.price * item.quantity}</b>
+                        {item.quantity} X ${item.price} ={" "}
+                        <b>${item.price * item.quantity}</b>
                       </span>
                     </div>
                   ))}

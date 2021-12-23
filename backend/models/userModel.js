@@ -7,20 +7,20 @@ const crypto = require("crypto");
 const userSchema = new mongoose.Schema({
   name: {
     type: String,
-    required: [true, "Please Enter Your Name"],
-    maxLength: [30, "Name cannot exceed 30 characters"],
-    minLength: [4, "Name should have more than 4 characters"],
+    required: [true, "Nhập tên"],
+    maxLength: [30, "Tên không dài quá 30 ký tự"],
+    minLength: [4, "Tên tối thiệu 4 ký tự"],
   },
   email: {
     type: String,
-    required: [true, "Please Enter Your Email"],
+    required: [true, "Nhập Email"],
     unique: true,
-    validate: [validator.isEmail, "Please Enter a valid Email"],
+    validate: [validator.isEmail, "Định dạng Email không đúng"],
   },
   password: {
     type: String,
-    required: [true, "Please Enter Your Password"],
-    minLength: [6, "Password should be greater than 6 characters"],
+    required: [true, "nhập mật khẩu"],
+    minLength: [6, "Mật khẩu tối thiểu 6 ký tự"],
     select: false,
   },
   avatar: {

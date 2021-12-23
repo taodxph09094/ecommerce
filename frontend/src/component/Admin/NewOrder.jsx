@@ -32,7 +32,7 @@ const NewOrder = ({ history }) => {
     }
 
     if (success) {
-      alert.success("Order Created Successfully");
+      alert.success("Mượn sách");
       history.push("/admin/dashboard");
       dispatch({ type: CREATE_ORDER_RESET });
     }
@@ -54,7 +54,7 @@ const NewOrder = ({ history }) => {
 
     return (
         <Fragment>
-        <MetaData title="Create Order" />
+        <MetaData title="Tạo hóa đơn" />
         <div className="dashboard">
           <SideBar />
           <div className="newProductContainer">
@@ -63,7 +63,7 @@ const NewOrder = ({ history }) => {
               encType="multipart/form-data"
               onSubmit={createOrderSubmitHandler}
             >
-              <h1>Create Order</h1>
+              <h1>Mượn sách</h1>
 
               <div>
                 <SpellcheckIcon />
@@ -121,7 +121,7 @@ const NewOrder = ({ history }) => {
                 type="submit"
                 disabled={loading ? true : false}
               >
-                Create
+                Mượn
               </Button>
             </form>
           </div>

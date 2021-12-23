@@ -41,10 +41,10 @@ const Dashboard = () => {
     });
 
   const lineState = {
-    labels: ["Initial Amount", "Amount Earned"],
+    labels: ["Doanh thu ban đầu", "Gần nhất"],
     datasets: [
       {
-        label: "TOTAL AMOUNT",
+        label: "Tổng",
         backgroundColor: ["tomato"],
         hoverBackgroundColor: ["rgb(197, 72, 49)"],
         data: [0, totalAmount],
@@ -53,7 +53,7 @@ const Dashboard = () => {
   };
 
   const doughnutState = {
-    labels: ["Out of Stock", "InStock"],
+    labels: ["Hết hàng", "Còn hàng"],
     datasets: [
       {
         backgroundColor: ["#00A6B4", "#6800B4"],
@@ -74,20 +74,20 @@ const Dashboard = () => {
         <div className="dashboardSummary">
           <div>
             <p>
-              Total Amount <br /> ₹{totalAmount}
+              Tổng doanh thu <br /> ${totalAmount}
             </p>
           </div>
           <div className="dashboardSummaryBox2">
             <Link to="/admin/products">
-              <p>Product</p>
+              <p>Số lượng sách</p>
               <p>{products && products.length}</p>
             </Link>
             <Link to="/admin/orders">
-              <p>Orders</p>
+              <p>Đơn online</p>
               <p>{orders && orders.length}</p>
             </Link>
             <Link to="/admin/users">
-              <p>Users</p>
+              <p>Tài khoản</p>
               <p>{users && users.length}</p>
             </Link>
           </div>

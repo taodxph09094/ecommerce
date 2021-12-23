@@ -21,13 +21,13 @@ const UserOptions = ({ user }) => {
   const dispatch = useDispatch();
 
   const options = [
-    { icon: <PersonIcon />, name: "Profile", func: account },
+    { icon: <PersonIcon />, name: "Thông tin tài khoản", func: account },
     {
       icon: <ListAltIcon />,
-      name: "Orders",
+      name: "Lịch sử đơn",
       func: orders
     },
-    { icon: <ExitToAppIcon />, name: "Logout", func: logoutUser },
+    { icon: <ExitToAppIcon />, name: "Đăng xuất", func: logoutUser },
   ];
 
   if (user.role === "admin") {
@@ -45,7 +45,7 @@ const UserOptions = ({ user }) => {
           style={{ color: cartItems.length > 0 ? "tomato" : "unset" }}
         />
       ),
-      name: `Cart(${cartItems.length})`,
+      name: `Giỏ(${cartItems.length})`,
       func: cart,
     },
     );
@@ -66,7 +66,7 @@ const UserOptions = ({ user }) => {
   }
   function logoutUser() {
     dispatch(logout());
-    alert.success("Logout Successfully");
+    alert.success("Đăng xuất thành công");
   }
 
   return (

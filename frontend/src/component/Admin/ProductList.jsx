@@ -43,7 +43,7 @@ const ProductList = ({ history }) => {
     }
 
     if (isDeleted) {
-      alert.success("Product Deleted Successfully");
+      alert.success("Xóa sách thành công");
       history.push("/admin/dashboard");
       dispatch({ type: DELETE_PRODUCT_RESET });
     }
@@ -52,17 +52,17 @@ const ProductList = ({ history }) => {
   }, [dispatch, alert, error, deleteError, history, isDeleted]);
 
   const columns = [
-    { field: "id", headerName: "Product ID", minWidth: 200, flex: 0.5 },
+    { field: "id", headerName: "Mã sách", minWidth: 200, flex: 0.5 },
 
     {
       field: "name",
-      headerName: "Name",
+      headerName: "Tên sách",
       minWidth: 350,
       flex: 1,
     },
     {
       field: "stock",
-      headerName: "Stock",
+      headerName: "Số lượng",
       type: "number",
       minWidth: 150,
       flex: 0.3,
@@ -70,7 +70,7 @@ const ProductList = ({ history }) => {
 
     {
       field: "price",
-      headerName: "Price",
+      headerName: "Giá thuê",
       type: "number",
       minWidth: 270,
       flex: 0.5,
@@ -117,12 +117,12 @@ const ProductList = ({ history }) => {
 
   return (
     <Fragment>
-      <MetaData title={`ALL PRODUCTS - Admin`} />
+      <MetaData title={`Tất cả sách - Admin`} />
 
       <div className="dashboard">
         <SideBar />
         <div className="productListContainer">
-          <h1 id="productListHeading">ALL PRODUCTS</h1>
+          <h1 id="productListHeading">Danh sách sách</h1>
 
           <DataGrid
             rows={rows}

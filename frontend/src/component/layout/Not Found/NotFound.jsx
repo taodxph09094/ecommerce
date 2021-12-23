@@ -9,8 +9,8 @@ const NotFound = () => {
     <div className="PageNotFound">
       <ErrorIcon />
 
-      <Typography>Page Not Found </Typography>
-      <Link to="/">Home</Link>
+      <Typography>Không tìm thấy trang </Typography>
+      <Link to="/">Trang chủ</Link>
     </div>
   );
 };

@@ -3,12 +3,12 @@ const mongoose = require("mongoose");
 const orderSystemSchema = mongoose.Schema({
   nameProduct:{
     type: String,
-    required: [true, "Please Enter product Name"],
+    required: [true, "Nhập tên sách"],
     trim: true,
   },
   nameBorrow: {
     type: String,
-    required: [true, "Please Enter Name"],
+    required: [true, "Nhập tên người mượn"],
     trim: true,
   },
   quantity: {

@@ -34,7 +34,7 @@ const OrderListOff = ({history}) => {
     }
 
     if (isDeleted) {
-      alert.success("Order Deleted Successfully");
+      alert.success("Trả sách thành công");
       history.push("/admin/orders/offline");
       dispatch({ type: DELETE_ORDER_RESET });
     }
@@ -118,12 +118,12 @@ const OrderListOff = ({history}) => {
     });
     return (
         <Fragment>
-        <MetaData title={`ALL ORDERS - Admin`} />
+        <MetaData title={`Lịch sử mượn trực tiếp - Admin`} />
 
         <div className="dashboard">
           <SideBar />
           <div className="productListContainer">
-            <h1 id="productListHeading">ALL ORDERS</h1>
+            <h1 id="productListHeading">Danh sách người mượn</h1>
 
             <DataGrid
               rows={rows}

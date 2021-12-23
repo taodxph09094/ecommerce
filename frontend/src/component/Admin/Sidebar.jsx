@@ -28,13 +28,13 @@ const Sidebar = () => {
           defaultCollapseIcon={<ExpandMoreIcon />}
           defaultExpandIcon={<ImportExportIcon />}
         >
-          <TreeItem nodeId="1" label="Products">
+          <TreeItem nodeId="1" label="Sách">
             <Link to="/admin/products">
-              <TreeItem nodeId="2" label="All" icon={<PostAddIcon />} />
+              <TreeItem nodeId="2" label="Tất cả sách" icon={<PostAddIcon />} />
             </Link>
 
             <Link to="/admin/product">
-              <TreeItem nodeId="3" label="Create" icon={<AddIcon />} />
+              <TreeItem nodeId="3" label="Tạo sách mới" icon={<AddIcon />} />
             </Link>
           </TreeItem>
         </TreeView>
@@ -47,28 +47,28 @@ const Sidebar = () => {
           defaultCollapseIcon={<ExpandMoreIcon />}
           defaultExpandIcon={<ListAltIcon />}
         >
-          <TreeItem nodeId="1" label="Orders">
+          <TreeItem nodeId="1" label="Hóa đơn">
             <Link to="/admin/orders/online">
-              <TreeItem nodeId="2" label="Orders online" icon={<PostAddIcon />} />
+              <TreeItem nodeId="2" label="Lịch sử mượn online" icon={<PostAddIcon />} />
             </Link>
             <Link to="/admin/orders/offline">
-              <TreeItem nodeId="2" label="Orders offline" icon={<PostAddIcon />} />
+              <TreeItem nodeId="2" label="Lịch sử mượn trực tiếp" icon={<PostAddIcon />} />
             </Link>
             <Link to="/admin/order">
-              <TreeItem nodeId="3" label="Create order" icon={<AddIcon />} />
+              <TreeItem nodeId="3" label="Mượn sách" icon={<AddIcon />} />
             </Link>
           </TreeItem>
         </TreeView>
       </Link>
       <Link to="/admin/users">
         <p>
-          <PeopleIcon /> Users
+          <PeopleIcon /> Tài khoản
         </p>
       </Link>
       <Link to="/admin/reviews">
         <p>
           <RateReviewIcon />
-          Reviews
+          Đánh giá
         </p>
       </Link>
     </div>

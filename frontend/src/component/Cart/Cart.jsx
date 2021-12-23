@@ -41,16 +41,16 @@ const Cart = ({ history }) => {
         <div className="emptyCart">
           <RemoveShoppingCartIcon />
 
-          <Typography>No Product in Your Cart</Typography>
-          <Link to="/products">View Products</Link>
+          <Typography>Không có sách trong giỏ hàng</Typography>
+          <Link to="/products">Xem thông tin sách</Link>
         </div>
       ) : (
         <Fragment>
           <div className="cartPage">
             <div className="cartHeader">
-              <p>Product</p>
-              <p>Quantity</p>
-              <p>Subtotal</p>
+              <p>Thông tin sách</p>
+              <p>Số lượng</p>
+              <p>Tổng tiền</p>
             </div>
 
             {cartItems &&
@@ -87,7 +87,7 @@ const Cart = ({ history }) => {
             <div className="cartGrossProfit">
               <div></div>
               <div className="cartGrossProfitBox">
-                <p>Gross Total</p>
+                <p>Thành tiền</p>
                 <p>{`₹${cartItems.reduce(
                   (acc, item) => acc + item.quantity * item.price,
                   0
@@ -95,7 +95,7 @@ const Cart = ({ history }) => {
               </div>
               <div></div>
               <div className="checkOutBtn">
-                <button onClick={checkoutHandler}>Check Out</button>
+                <button onClick={checkoutHandler}>Thanh toán</button>
               </div>
             </div>
           </div>

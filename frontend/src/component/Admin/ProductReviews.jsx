@@ -55,7 +55,7 @@ const ProductReviews = ({ history }) => {
     }
 
     if (isDeleted) {
-      alert.success("Review Deleted Successfully");
+      alert.success("Xóa đánh giá thành công");
       history.push("/admin/reviews");
       dispatch({ type: DELETE_REVIEW_RESET });
     }
@@ -66,14 +66,14 @@ const ProductReviews = ({ history }) => {
 
     {
       field: "user",
-      headerName: "User",
+      headerName: "tài khoản",
       minWidth: 200,
       flex: 0.6,
     },
 
     {
       field: "comment",
-      headerName: "Comment",
+      headerName: "Đánh giá",
       minWidth: 350,
       flex: 1,
     },
@@ -129,7 +129,7 @@ const ProductReviews = ({ history }) => {
 
   return (
     <Fragment>
-      <MetaData title={`ALL REVIEWS - Admin`} />
+      <MetaData title={`Tất cả đánh giá - Admin`} />
 
       <div className="dashboard">
         <SideBar />
@@ -138,13 +138,13 @@ const ProductReviews = ({ history }) => {
             className="productReviewsForm"
             onSubmit={productReviewsSubmitHandler}
           >
-            <h1 className="productReviewsFormHeading">ALL REVIEWS</h1>
+            <h1 className="productReviewsFormHeading">Tất cả đánh giá</h1>
 
             <div>
               <Star />
               <input
                 type="text"
-                placeholder="Product Id"
+                placeholder="Mã sách"
                 required
                 value={productId}
                 onChange={(e) => setProductId(e.target.value)}
@@ -158,7 +158,7 @@ const ProductReviews = ({ history }) => {
                 loading ? true : false || productId === "" ? true : false
               }
             >
-              Search
+              Tìm kiếm
             </Button>
           </form>
 
@@ -172,7 +172,7 @@ const ProductReviews = ({ history }) => {
               autoHeight
             />
           ) : (
-            <h1 className="productReviewsFormHeading">No Reviews Found</h1>
+            <h1 className="productReviewsFormHeading">Không có </h1>
           )}
         </div>
       </div>

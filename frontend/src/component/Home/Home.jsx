@@ -30,12 +30,12 @@ const Home = () => {
           <MetaData title="Quản lý thư viện" />
 
           <div className="banner">
-            <p>Welcome to Thư viên hihi</p>
-            <h1>FIND AMAZING BOOK BELOW</h1>
+            <p>Thư viên ABC</p>
+            <h1>Một cuốn sách hay cho ta một điều tốt, một người bạn tốt cho ta một điều hay.</h1>
 
             <a href="#container">
               <button>
-                Scroll <CgMouse />
+                 <CgMouse />
               </button>
             </a>
           </div>

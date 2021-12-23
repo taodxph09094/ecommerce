@@ -45,7 +45,7 @@ const ProcessOrder = ({ history, match }) => {
       dispatch(clearErrors());
     }
     if (isUpdated) {
-      alert.success("Order Updated Successfully");
+      alert.success("Trả sách thành công");
       dispatch({ type: UPDATE_ORDER_RESET });
     }
 
@@ -54,7 +54,7 @@ const ProcessOrder = ({ history, match }) => {
 
   return (
     <Fragment>
-      <MetaData title="Process Order" />
+      <MetaData title="Thông tin đơn" />
       <div className="dashboard">
         <SideBar />
         <div className="newProductContainer">
@@ -69,20 +69,20 @@ const ProcessOrder = ({ history, match }) => {
             >
               <div>
                 <div className="confirmshippingArea">
-                  <Typography>Shipping Info</Typography>
+                  <Typography>Thông tin người mượn</Typography>
                   <div className="orderDetailsContainerBox">
                     <div>
-                      <p>Name:</p>
+                      <p>Tên:</p>
                       <span>{order.user && order.user.name}</span>
                     </div>
                     <div>
-                      <p>Phone:</p>
+                      <p>Số điện thoại:</p>
                       <span>
                         {order.shippingInfo && order.shippingInfo.phoneNo}
                       </span>
                     </div>
                     <div>
-                      <p>Address:</p>
+                      <p>Địa chỉ:</p>
                       <span>
                         {order.shippingInfo &&
                           `${order.shippingInfo.address}, ${order.shippingInfo.city}, ${order.shippingInfo.state}, ${order.shippingInfo.pinCode}, ${order.shippingInfo.country}`}
@@ -90,7 +90,7 @@ const ProcessOrder = ({ history, match }) => {
                     </div>
                   </div>
 
-                  <Typography>Payment</Typography>
+                  <Typography>Trạng thái thanh toán</Typography>
                   <div className="orderDetailsContainerBox">
                     <div>
                       <p
@@ -103,18 +103,18 @@ const ProcessOrder = ({ history, match }) => {
                       >
                         {order.paymentInfo &&
                         order.paymentInfo.status === "succeeded"
-                          ? "PAID"
-                          : "NOT PAID"}
+                        ? "Đã thanh toán"
+                        : "Thanh toán lỗi"}
                       </p>
                     </div>
 
                     <div>
-                      <p>Amount:</p>
+                      <p>Giá:</p>
                       <span>{order.totalPrice && order.totalPrice}</span>
                     </div>
                   </div>
 
-                  <Typography>Order Status</Typography>
+                  <Typography>Trạng thái mượn</Typography>
                   <div className="orderDetailsContainerBox">
                     <div>
                       <p
@@ -130,7 +130,7 @@ const ProcessOrder = ({ history, match }) => {
                   </div>
                 </div>
                 <div className="confirmCartItems">
-                  <Typography>Your Cart Items:</Typography>
+                  <Typography>Số lượng đơn:</Typography>
                   <div className="confirmCartItemsContainer">
                     {order.orderItems &&
                       order.orderItems.map((item) => (
@@ -140,7 +140,7 @@ const ProcessOrder = ({ history, match }) => {
                             {item.name}
                           </Link>{" "}
                           <span>
-                            {item.quantity} X ₹{item.price} ={" "}
+                            {item.quantity} X ${item.price} ={" "}
                             <b>₹{item.price * item.quantity}</b>
                           </span>
                         </div>
@@ -158,12 +158,12 @@ const ProcessOrder = ({ history, match }) => {
                   className="updateOrderForm"
                   onSubmit={updateOrderSubmitHandler}
                 >
-                  <h1>Process Order</h1>
+                  <h1>Xác nhận</h1>
 
                   <div>
                     <AccountTreeIcon />
                     <select onChange={(e) => setStatus(e.target.value)}>
-                      <option value="">Choose Category</option>
+                      <option value="">Chọn </option>
                       {order.orderStatus === "Đang xử lý" && (
                         <option value="Đang mượn">Đang mượn</option>
                       )}

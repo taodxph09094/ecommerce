@@ -44,7 +44,7 @@ const NewProduct = ({ history }) => {
     }
 
     if (success) {
-      alert.success("Product Created Successfully");
+      alert.success("Thêm sách vào thư viện thành công");
       history.push("/admin/dashboard");
       dispatch({ type: NEW_PRODUCT_RESET });
     }
@@ -89,7 +89,7 @@ const NewProduct = ({ history }) => {
 
   return (
     <Fragment>
-      <MetaData title="Create Product" />
+      <MetaData title="Thêm sách" />
       <div className="dashboard">
         <SideBar />
         <div className="newProductContainer">
@@ -104,7 +104,7 @@ const NewProduct = ({ history }) => {
               <SpellcheckIcon />
               <input
                 type="text"
-                placeholder="Product Name"
+                placeholder="Tên sách"
                 required
                 value={name}
                 onChange={(e) => setName(e.target.value)}
@@ -114,7 +114,7 @@ const NewProduct = ({ history }) => {
               <AttachMoneyIcon />
               <input
                 type="number"
-                placeholder="Price"
+                placeholder="Giá thuê"
                 required
                 onChange={(e) => setPrice(e.target.value)}
               />
@@ -124,7 +124,7 @@ const NewProduct = ({ history }) => {
               <DescriptionIcon />
 
               <textarea
-                placeholder="Product Description"
+                placeholder="Mô tả "
                 value={description}
                 onChange={(e) => setDescription(e.target.value)}
                 cols="30"
@@ -135,7 +135,7 @@ const NewProduct = ({ history }) => {
             <div>
               <AccountTreeIcon />
               <select onChange={(e) => setCategory(e.target.value)}>
-                <option value="">Choose Category</option>
+                <option value="">Chọn danh mục</option>
                 {categories.map((cate) => (
                   <option key={cate} value={cate}>
                     {cate}
@@ -148,7 +148,7 @@ const NewProduct = ({ history }) => {
               <StorageIcon />
               <input
                 type="number"
-                placeholder="Stock"
+                placeholder="Số lượng"
                 required
                 onChange={(e) => setStock(e.target.value)}
               />
@@ -175,7 +175,7 @@ const NewProduct = ({ history }) => {
               type="submit"
               disabled={loading ? true : false}
             >
-              Create
+              Thêm sách
             </Button>
           </form>
         </div>

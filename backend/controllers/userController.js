@@ -36,19 +36,19 @@ exports.loginUser = catchAsyncErrors(async (req, res, next) => {
   // checking if user has given password and email both
 
   if (!email || !password) {
-    return next(new ErrorHander("Please Enter Email & Password", 400));
+    return next(new ErrorHander("Nhập mật khẩu", 400));
   }
 
   const user = await User.findOne({ email }).select("+password");
 
   if (!user) {
-    return next(new ErrorHander("Invalid email or password", 401));
+    return next(new ErrorHander("Sai Email hoặc mật khẩu", 401));
   }
 
   const isPasswordMatched = await user.comparePassword(password);
 
   if (!isPasswordMatched) {
-    return next(new ErrorHander("Invalid email or password", 401));
+    return next(new ErrorHander("Sai Email hoặc mật khẩu", 401));
   }
 
   sendToken(user, 200, res);
@@ -63,7 +63,7 @@ exports.logout = catchAsyncErrors(async (req, res, next) => {
 
   res.status(200).json({
     success: true,
-    message: "Logged Out",
+    message: "Đăng xuất",
   });
 });
 
@@ -72,7 +72,7 @@ exports.forgotPassword = catchAsyncErrors(async (req, res, next) => {
   const user = await User.findOne({ email: req.body.email });
 
   if (!user) {
-    return next(new ErrorHander("User not found", 404));
+    return next(new ErrorHander("Không tìm thấy tài khoản", 404));
   }
 
   // Get ResetPassword Token
@@ -82,18 +82,18 @@ exports.forgotPassword = catchAsyncErrors(async (req, res, next) => {
 
   const resetPasswordUrl = `${process.env.FRONTEND_URL}/password/reset/${resetToken}`;
 
-  const message = `Your password reset token is :- \n\n ${resetPasswordUrl} \n\nIf you have not requested this email then, please ignore it.`;
+  const message = `Mã tạo mới mật khẩu của bạn là :- \n\n ${resetPasswordUrl} \n\n`;
 
   try {
     await sendEmail({
       email: user.email,
-      subject: `Ecommerce Password Recovery`,
+      subject: `Khôi phục mật khẩu`,
       message,
     });
 
     res.status(200).json({
       success: true,
-      message: `Email sent to ${user.email} successfully`,
+      message: `Đã gửi Email đến địa chỉ ${user.email} thành công`,
     });
   } catch (error) {
     user.resetPasswordToken = undefined;
@@ -121,14 +121,14 @@ exports.resetPassword = catchAsyncErrors(async (req, res, next) => {
   if (!user) {
     return next(
       new ErrorHander(
-        "Reset Password Token is invalid or has been expired",
+        "Mã khôi phục mật khẩu đã hết hạn",
         400
       )
     );
   }
 
   if (req.body.password !== req.body.confirmPassword) {
-    return next(new ErrorHander("Password does not password", 400));
+    return next(new ErrorHander("mật khẩu không đúng", 400));
   }
 
   user.password = req.body.password;
@@ -157,11 +157,11 @@ exports.updatePassword = catchAsyncErrors(async (req, res, next) => {
   const isPasswordMatched = await user.comparePassword(req.body.oldPassword);
 
   if (!isPasswordMatched) {
-    return next(new ErrorHander("Old password is incorrect", 400));
+    return next(new ErrorHander(" mật khẩu cũ không đúng", 400));
   }
 
   if (req.body.newPassword !== req.body.confirmPassword) {
-    return next(new ErrorHander("password does not match", 400));
+    return next(new ErrorHander("Hai mật khẩu không trùng", 400));
   }
 
   user.password = req.body.newPassword;
@@ -224,7 +224,7 @@ exports.getSingleUser = catchAsyncErrors(async (req, res, next) => {
 
   if (!user) {
     return next(
-      new ErrorHander(`User does not exist with Id: ${req.params.id}`)
+      new ErrorHander(`Người dùng không tồn tại với Id: ${req.params.id}`)
     );
   }
 
@@ -259,7 +259,7 @@ exports.deleteUser = catchAsyncErrors(async (req, res, next) => {
 
   if (!user) {
     return next(
-      new ErrorHander(`User does not exist with Id: ${req.params.id}`, 400)
+      new ErrorHander(`Người dùng không tồn tại với Id: ${req.params.id}`, 400)
     );
   }
 
@@ -271,6 +271,6 @@ exports.deleteUser = catchAsyncErrors(async (req, res, next) => {
 
   res.status(200).json({
     success: true,
-    message: "User Deleted Successfully",
+    message: "Xóa tài khoản thành công",
   });
 });

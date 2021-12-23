@@ -41,24 +41,24 @@ const ConfirmOrder = ({ history }) => {
       <div className="confirmOrderPage">
         <div>
           <div className="confirmshippingArea">
-            <Typography>Shipping Info</Typography>
+            <Typography>Thông tin giao hàng</Typography>
             <div className="confirmshippingAreaBox">
               <div>
-                <p>Name:</p>
+                <p>Tên người tạo:</p>
                 <span>{user.name}</span>
               </div>
               <div>
-                <p>Phone:</p>
+                <p>Số điện thoại:</p>
                 <span>{shippingInfo.phoneNo}</span>
               </div>
               <div>
-                <p>Address:</p>
+                <p>Địa chỉ:</p>
                 <span>{address}</span>
               </div>
             </div>
           </div>
           <div className="confirmCartItems">
-            <Typography>Your Cart Items:</Typography>
+            <Typography>Sản phẩm trong giỏ:</Typography>
             <div className="confirmCartItemsContainer">
               {cartItems &&
                 cartItems.map((item) => (
@@ -79,26 +79,26 @@ const ConfirmOrder = ({ history }) => {
         {/*  */}
         <div>
           <div className="orderSummary">
-            <Typography>Order Summery</Typography>
+            <Typography>Thông tin hóa đơn</Typography>
             <div>
               <div>
-                <p>Subtotal:</p>
+                <p>Tổng tiền:</p>
                 <span>${subtotal}</span>
               </div>
               <div>
-                <p>Shipping Charges:</p>
+                <p>Phí giao hàng:</p>
                 <span>${shippingCharges}</span>
               </div>
             </div>
 
             <div className="orderSummaryTotal">
               <p>
-                <b>Total:</b>
+                <b>Thành tiền:</b>
               </p>
               <span>${totalPrice}</span>
             </div>
 
-            <button onClick={proceedToPayment}>Proceed To Payment</button>
+            <button onClick={proceedToPayment}>Thanh toán </button>
           </div>
         </div>
       </div>

@@ -19,22 +19,22 @@ const MyOrders = () => {
   const { user } = useSelector((state) => state.user);
 
   const columns = [
-    { field: "id", headerName: "Order ID", minWidth: 300, flex: 1 },
+    { field: "id", headerName: "Mã đơn hàng", minWidth: 300, flex: 1 },
 
     {
       field: "status",
-      headerName: "Status",
+      headerName: "Trạng thái",
       minWidth: 150,
       flex: 0.5,
       cellClassName: (params) => {
-        return params.getValue(params.id, "status") === "Delivered"
+        return params.getValue(params.id, "status") === "Đã trả"
           ? "greenColor"
           : "redColor";
       },
     },
     {
       field: "itemsQty",
-      headerName: "Items Qty",
+      headerName: "Số lượng sách",
       type: "number",
       minWidth: 150,
       flex: 0.3,
@@ -42,7 +42,7 @@ const MyOrders = () => {
 
     {
       field: "amount",
-      headerName: "Amount",
+      headerName: "Giá tiền",
       type: "number",
       minWidth: 270,
       flex: 0.5,
@@ -87,7 +87,7 @@ const MyOrders = () => {
 
   return (
     <Fragment>
-      <MetaData title={`${user.name} - Orders`} />
+      <MetaData title={`${user.name} - Lịch sử mượn`} />
 
       {loading ? (
         <Loader />
